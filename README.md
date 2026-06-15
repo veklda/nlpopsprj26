@@ -209,8 +209,6 @@ sudo docker volume ls | grep huggingface_cache
 
 ## Example run
 
-Note: Both prompt generation and classification has been done with small models in the interest of time, meaning that both prompts and classification results are often nonsensical.
-
 ### Dashboard
 
 ![Grafana Dashboard](grafana_dashboard.png)
