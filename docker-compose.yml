@@ -1,0 +1,76 @@
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+  api:
+    build: ./api
+    ports:
+      - "8000:8000"
+    depends_on:
+      redis:
+        condition: service_started
+      inference:
+        condition: service_healthy
+    environment:
+      - INFERENCE_URL=http://inference:8001/predict_batch
+      - REDIS_URL=redis://redis:6379/0
+    restart: unless-stopped
+
+  inference:
+    build: ./inference
+    ports:
+      - "8001:8001"
+    volumes:
+      - huggingface_cache:/root/.cache/huggingface
+    environment:
+      - CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-""}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8001/health')"]
+      interval: 15s
+      retries: 10
+      start_period: 300s
+    restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus:/etc/prometheus
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+    depends_on:
+      prometheus:
+        condition: service_started
+    restart: unless-stopped
+
+  k6:
+    image: grafana/k6:latest
+    profiles:
+      - loadtest
+    volumes:
+      - ./k6:/scripts
+    ports:
+      - "5665:5665"
+    environment:
+      - K6_WEB_DASHBOARD=true
+      - K6_WEB_DASHBOARD_HOST=0.0.0.0
+      - K6_WEB_DASHBOARD_PORT=5665
+      - BASE_URL=http://api:8000
+    command: run /scripts/classify_load_test.js
+    depends_on:
+      api:
+        condition: service_started
+
+volumes:
+  huggingface_cache:

@@ -1,0 +1,8 @@
+# torch is provided by the pytorch/pytorch base image; the floor keeps
+# non-Docker installs working.
+torch>=2.0
+transformers==4.57.6
+fastapi==0.136.1
+uvicorn==0.46.0
+pydantic==2.13.4
+prometheus-client==0.25.0

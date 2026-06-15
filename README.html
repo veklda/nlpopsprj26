@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  /* --- Layout --- */
+    html {
+      height: 100%;
+      color: #c9d1d9;
+      background-color: #0d1117;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      height: 100vh;
+      max-width: none;
+      overflow: hidden;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    #sidebar {
+      flex: 0 0 260px;
+      overflow-y: auto;
+      border-right: 1px solid #30363d;
+      padding: 20px;
+      background-color: #161b22;
+    }
+    #main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 50px;
+      height: 100%;
+    }
+    @media (max-width: 600px) {
+      body {
+        flex-direction: column;
+        font-size: 0.9em;
+      }
+      #sidebar {
+        flex: none;
+        max-height: 200px;
+        border-right: none;
+        border-bottom: 1px solid #30363d;
+      }
+      #main {
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+
+    /* --- Typography & base colors --- */
+    a {
+      color: #58a6ff;
+    }
+    a:visited {
+      color: #8e96f0;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: #e6edf3;
+    }
+    blockquote {
+      border-left: 2px solid #30363d;
+      color: #8b949e;
+    }
+    hr {
+      background-color: #30363d;
+    }
+
+    /* --- Code --- */
+    code {
+      background-color: #161b22;
+      color: #c9d1d9;
+      padding: 0.2em 0.4em;
+      border-radius: 3px;
+    }
+    pre {
+      background-color: #161b22;
+      padding: 1em;
+      border-radius: 6px;
+    }
+    pre code {
+      background-color: transparent;
+      padding: 0;
+    }
+
+    /* --- Tables --- */
+    tbody {
+      border-top: 1px solid #30363d;
+      border-bottom: 1px solid #30363d;
+    }
+    th {
+      border-top: 1px solid #30363d;
+      color: #e6edf3;
+    }
+    tr:nth-child(even) {
+      background-color: #161b22;
+    }
+
+    /* --- TOC --- */
+    #TOC a:not(:hover) {
+      color: #c9d1d9;
+    }
+    #TOC a:hover {
+      color: #58a6ff;
+    }
+
+    /* --- Syntax highlighting (dark overrides) --- */
+    pre.numberSource { border-left: 1px solid #30363d; }
+    pre.numberSource code > span > a:first-child::before { color: #6e7681; }
+    code span.al { color: #ff7b72; font-weight: bold; } /* Alert */
+    code span.an { color: #d2a8ff; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7ee787; } /* Attribute */
+    code span.bn { color: #79c0ff; } /* BaseN */
+    code span.bu { color: #56d364; } /* BuiltIn */
+    code span.cf { color: #ff7b72; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #a5d6ff; } /* Char */
+    code span.cn { color: #79c0ff; } /* Constant */
+    code span.co { color: #8b949e; font-style: italic; } /* Comment */
+    code span.cv { color: #8b949e; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ffa657; font-style: italic; } /* Documentation */
+    code span.dt { color: #ff7b72; } /* DataType */
+    code span.dv { color: #79c0ff; } /* DecVal */
+    code span.er { color: #ff7b72; font-weight: bold; } /* Error */
+    code span.fl { color: #79c0ff; } /* Float */
+    code span.fu { color: #d2a8ff; } /* Function */
+    code span.im { color: #56d364; font-weight: bold; } /* Import */
+    code span.in { color: #8b949e; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #ff7b72; font-weight: bold; } /* Keyword */
+    code span.op { color: #c9d1d9; } /* Operator */
+    code span.ot { color: #ffa657; } /* Other */
+    code span.pp { color: #79c0ff; } /* Preprocessor */
+    code span.sc { color: #79c0ff; } /* SpecialChar */
+    code span.ss { color: #a5d6ff; } /* SpecialString */
+    code span.st { color: #a5d6ff; } /* String */
+    code span.va { color: #ffa657; } /* Variable */
+    code span.vs { color: #a5d6ff; } /* VerbatimString */
+    code span.wa { color: #ffa657; font-weight: bold; font-style: italic; } /* Warning */
+
+    /* --- k6 CLI colors --- */
+    .k6-cyan { color: #00d4ff; }
+    .k6-green { color: #3fb950; }
+    .k6-magenta { color: #ff55ff; }
+    .k6-yellow { color: #ffcc00; }
+    .k6-red { color: #ff4444; }
+    .k6-dim { color: #888888; }
+  </style>
+</head>
+<body>
+<div id="sidebar"><nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#nlp-comment-classification-service"
+id="toc-nlp-comment-classification-service">NLP Comment Classification
+Service</a>
+<ul>
+<li><a href="#api" id="toc-api">API</a></li>
+<li><a href="#architecture" id="toc-architecture">Architecture</a>
+<ul>
+<li><a href="#microbatching-implementation"
+id="toc-microbatching-implementation">Microbatching
+implementation</a></li>
+<li><a href="#components" id="toc-components">Components</a></li>
+</ul></li>
+<li><a href="#usage" id="toc-usage">Usage</a>
+<ul>
+<li><a href="#docker-compose" id="toc-docker-compose">Docker
+Compose</a></li>
+<li><a href="#local-without-docker" id="toc-local-without-docker">Local
+(without Docker)</a></li>
+<li><a href="#load-testing-k6" id="toc-load-testing-k6">Load Testing
+(k6)</a></li>
+<li><a href="#standalone-original-single-process-no-redis"
+id="toc-standalone-original-single-process-no-redis">Standalone
+(original single-process, no Redis)</a></li>
+</ul></li>
+<li><a href="#gpu-support" id="toc-gpu-support">GPU support</a></li>
+<li><a href="#metrics" id="toc-metrics">Metrics</a>
+<ul>
+<li><a href="#api-service-api8000" id="toc-api-service-api8000">API
+Service (<code>api:8000</code>)</a></li>
+<li><a href="#inference-service-inference8001"
+id="toc-inference-service-inference8001">Inference Service
+(<code>inference:8001</code>)</a></li>
+<li><a href="#most-important-metrics"
+id="toc-most-important-metrics">Most Important Metrics</a></li>
+</ul></li>
+<li><a href="#troubleshooting"
+id="toc-troubleshooting">Troubleshooting</a>
+<ul>
+<li><a href="#bind-for-0.0.0.08001-failed-port-is-already-allocated"
+id="toc-bind-for-0.0.0.08001-failed-port-is-already-allocated"><code>Bind for 0.0.0.0:8001 failed: port is already allocated</code></a></li>
+<li><a href="#inference-container-stuck-in-waiting-then-fails-to-start"
+id="toc-inference-container-stuck-in-waiting-then-fails-to-start"><code>inference</code>
+container stuck in <code>Waiting</code> then fails to start</a></li>
+</ul></li>
+<li><a href="#example-run" id="toc-example-run">Example run</a>
+<ul>
+<li><a href="#dashboard" id="toc-dashboard">Dashboard</a></li>
+<li><a href="#k6-load-test-output" id="toc-k6-load-test-output">k6 Load
+Test Output</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div><div id="main">
+<h1 id="nlp-comment-classification-service">NLP Comment Classification
+Service</h1>
+<p>FastAPI service for zero-shot classification of German comments using
+<code>MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli</code>.</p>
+<h2 id="api">API</h2>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 24%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Path</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>POST</td>
+<td><code>/classify</code></td>
+<td>Submit a comment (non-blocking, returns request_id)</td>
+</tr>
+<tr class="even">
+<td>GET</td>
+<td><code>/result/{id}</code></td>
+<td>Poll for the classification result</td>
+</tr>
+<tr class="odd">
+<td>GET</td>
+<td><code>/status</code></td>
+<td>Check if the inference model has loaded</td>
+</tr>
+</tbody>
+</table>
+<p><strong>POST /classify</strong></p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="dt">&quot;comment&quot;</span><span class="fu">:</span> <span class="st">&quot;Ich habe den Artikel nicht gelesen, aber ich bin trotzdem dagegen.&quot;</span><span class="fu">}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="dt">&quot;request_id&quot;</span><span class="fu">:</span> <span class="st">&quot;a1b2c3d4-...&quot;</span><span class="fu">}</span></span></code></pre></div>
+<p><strong>GET /result/{request_id}</strong></p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">//</span> <span class="er">while</span> <span class="er">processing</span> <span class="er">→</span> <span class="er">404</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="dt">&quot;detail&quot;</span><span class="fu">:</span> <span class="st">&quot;pending&quot;</span><span class="fu">}</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="er">//</span> <span class="er">ready</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="dt">&quot;comment&quot;</span><span class="fu">:</span> <span class="st">&quot;...&quot;</span><span class="fu">,</span> <span class="dt">&quot;label&quot;</span><span class="fu">:</span> <span class="st">&quot;Empörung oder Rant&quot;</span><span class="fu">,</span> <span class="dt">&quot;score&quot;</span><span class="fu">:</span> <span class="fl">0.72</span><span class="fu">}</span></span></code></pre></div>
+<p><strong>GET /status</strong></p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="st">&quot;ready&quot;</span><span class="fu">,</span> <span class="dt">&quot;model&quot;</span><span class="fu">:</span> <span class="st">&quot;MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli&quot;</span><span class="fu">}</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="st">&quot;loading&quot;</span><span class="fu">}</span></span></code></pre></div>
+<p>Labels: <code>sachliche Kritik</code>, <code>Zustimmung</code>,
+<code>Sarkasmus oder Ironie</code>, <code>Off-Topic-Kommentar</code>,
+<code>Empörung oder Rant</code>,
+<code>Desinformation oder Verschwörung</code></p>
+<h2 id="architecture">Architecture</h2>
+<pre><code>Client ──POST /classify──▶ api :8000 ──rpush──▶ Redis queue
+                                                     │
+                                           batch worker
+                                         (size≥4 │ 30s)
+                                                     │
+                                             POST /predict_batch
+                                                     │
+                                             inference :8001
+                                                     │
+Client ◀──GET /result──── api :8000 ◀──rset──────────┘
+Client ◀──GET /status ─── api :8000 ──GET /health ──▶ inference</code></pre>
+<h3 id="microbatching-implementation">Microbatching implementation</h3>
+<p>The API layer implements client-side microbatching using a single
+background worker thread (<code>batch_worker</code> in
+<code>api/main.py</code>). The worker maintains an in-memory
+<code>batch_buffer</code> of items that have already been removed from
+the Redis queue. It flushes the buffer to the inference server when
+either of the two triggers fires:</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 25%" />
+<col style="width: 54%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Trigger</th>
+<th>Condition</th>
+<th>Typical load behaviour</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Batch size</strong></td>
+<td>4 items accumulated</td>
+<td>Occurs when the queue is keeping up</td>
+</tr>
+<tr class="even">
+<td><strong>Timeout</strong></td>
+<td>30 seconds since the oldest buffered item</td>
+<td>Occurs at low load or idle → prevents a single comment from waiting
+indefinitely</td>
+</tr>
+</tbody>
+</table>
+<p>The flow at the worker level is:</p>
+<ol type="1">
+<li><strong>Orphan recovery on startup</strong> — Every
+<code>PROCESSING</code> item from a previous crash is moved back to the
+queue with <code>RPOP → LPUSH</code>.</li>
+<li><strong>Requeue retries</strong> — Items in the <code>RETRY</code>
+sorted set whose exponential backoff has elapsed are moved back to the
+queue.</li>
+<li><strong>Pop with atomic acknowledgment</strong> — The worker blocks
+on <code>BRPOPLPUSH(queue, processing, timeout=1)</code>, which removes
+the rightmost queue item and simultaneously pushes it to the
+<code>PROCESSING</code> list so it can be recovered if the worker
+crashes.</li>
+<li><strong>Buffer fill</strong> — The popped item is appended to the
+in-memory buffer as the tuple
+<code>(data, raw, enqueue_time)</code>.</li>
+<li><strong>Flush</strong> — When either trigger is reached, the worker
+sends the batch via an HTTP POST to the inference server:
+<code>POST /predict_batch</code> with
+<code>{"comments": ["comment1", "comment2", ...]}</code>. The
+<code>raw</code> value (the original JSON string) is used to remove the
+item from the <code>PROCESSING</code> list with <code>LREM</code> once
+results are stored. If inference fails, the entire batch is moved to the
+retry sorted set with a capped exponential backoff
+(<code>min(2^retries, 30)</code> seconds) and requeued later. If
+<code>MAX_RETRIES</code> (3) is exceeded, the item is dropped with an
+error stored in the result cache.</li>
+<li><strong>Result caching</strong> — Each comment is stored in Redis
+under <code>classify:result:{request_id}</code> with a TTL of 300
+seconds. Clients poll <code>/result/{id}</code> against this key.</li>
+</ol>
+<p>The <code>batch_worker</code> loop also exposes the
+<code>microbatch_queue_size</code> metric, which is the sum of the queue
+length, buffer size, retry set cardinality, and in-flight processing
+list length — a direct signal of back-pressure.</p>
+<h3 id="components">Components</h3>
+<ul>
+<li><strong>redis</strong> — queue decouples request submission from
+inference</li>
+<li><strong>api</strong> — FastAPI gateway. Accepts requests, pushes to
+Redis. Runs the microbatch background worker. Applies exponential
+backoff on inference failures.</li>
+<li><strong>inference</strong> — Model server with single
+(<code>/predict</code>) and batch (<code>/predict_batch</code>)
+endpoints, plus a <code>/health</code> endpoint for readiness
+checks.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="docker-compose">Docker Compose</h3>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build and start (CPU)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> docker compose up <span class="at">--build</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Start with GPU (requires nvidia-container-toolkit)</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="va">CUDA_VISIBLE_DEVICES</span><span class="op">=</span>all <span class="fu">sudo</span> docker compose up <span class="at">--build</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Interactive client (separate terminal — polls /status then enters async loop)</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> test_client.py</span></code></pre></div>
+<h3 id="local-without-docker">Local (without Docker)</h3>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start Redis</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> docker run <span class="at">-d</span> <span class="at">-p</span> 6379:6379 redis:7-alpine</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Start inference server (use .venv_gpu for GPU)</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">uvicorn</span> inference.server:app <span class="at">--port</span> 8001</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Start API server (another terminal)</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="va">INFERENCE_URL</span><span class="op">=</span>http://127.0.0.1:8001/predict_batch <span class="dt">\</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="va">REDIS_URL</span><span class="op">=</span>redis://127.0.0.1:6379/0 <span class="dt">\</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="ex">uvicorn</span> api.main:app <span class="at">--port</span> 8000</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># When running multiple uvicorn workers, enable the batch worker on only one instance:</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># BATCH_WORKER_ENABLED=1 uvicorn api.main:app --port 8000</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># BATCH_WORKER_ENABLED=0 uvicorn api.main:app --port 8000 --workers 3</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Interactive client</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> test_client.py</span></code></pre></div>
+<h3 id="load-testing-k6">Load Testing (k6)</h3>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Start the stack first in the background (inference, api, redis, monitoring)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> docker compose up <span class="at">--build</span> <span class="at">-d</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. In another terminal, run the load test — output is clearly visible here</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#    k6 web dashboard will be available at http://localhost:5665</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> docker compose <span class="at">--profile</span> loadtest run <span class="at">--service-ports</span> <span class="at">--rm</span> k6</span></code></pre></div>
+<h3 id="standalone-original-single-process-no-redis">Standalone
+(original single-process, no Redis)</h3>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">.venv/bin/uvicorn</span> main:app                              <span class="co"># CPU</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">.venv_gpu/bin/uvicorn</span> main:app                          <span class="co"># GPU (MX250 / sm_61)</span></span></code></pre></div>
+<h2 id="gpu-support">GPU support</h2>
+<p>The inference server auto-detects CUDA and runs on GPU when
+available. Two GPU environments exist:</p>
+<ul>
+<li><strong>Docker</strong> — the <code>inference</code> image is built
+on <code>pytorch/pytorch:2.6.0-cuda12.6-cudnn9-runtime</code> (PyTorch
+2.6.0 / CUDA 12.6).</li>
+<li><strong>Local <code>.venv_gpu</code></strong> — Python 3.11, PyTorch
+2.4.1+cu121, pinned for the MX250 (sm_61).</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>device <span class="op">=</span> <span class="dv">0</span> <span class="cf">if</span> torch.cuda.is_available() <span class="cf">else</span> <span class="st">&quot;cpu&quot;</span></span></code></pre></div>
+<p>To verify: start the server and check the logs —
+<code>Device set to use cuda:0</code> confirms GPU inference.</p>
+<h2 id="metrics">Metrics</h2>
+<p>Both services expose Prometheus metrics on <code>/metrics</code>. The
+following metrics are implemented:</p>
+<h3 id="api-service-api8000">API Service (<code>api:8000</code>)</h3>
+<table>
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 22%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>comments_classified_total</code></td>
+<td>Counter</td>
+<td>Total number of comments successfully classified.</td>
+</tr>
+<tr class="even">
+<td><code>batches_processed_total</code></td>
+<td>Counter</td>
+<td>Total number of batches sent to the inference server.</td>
+</tr>
+<tr class="odd">
+<td><code>batch_size</code></td>
+<td>Histogram</td>
+<td>Number of comments in each processed batch (buckets: 1, 2, 4, 8,
+16). Helps verify microbatching behaviour.</td>
+</tr>
+<tr class="even">
+<td><code>batch_inference_duration_seconds</code></td>
+<td>Histogram</td>
+<td>End-to-end time for the inference request per batch (buckets up to
+120 s).</td>
+</tr>
+<tr class="odd">
+<td><code>batch_wait_time_seconds</code></td>
+<td>Histogram</td>
+<td>How long a comment waits in the microbatch buffer before being
+flushed (buckets up to 60 s).</td>
+</tr>
+<tr class="even">
+<td><code>microbatch_queue_size</code></td>
+<td>Gauge</td>
+<td>Current number of comments waiting across the Redis queue,
+microbatch buffer, retry set, and in-flight processing list.</td>
+</tr>
+<tr class="odd">
+<td><code>comments_classified_by_label_total</code></td>
+<td>Counter</td>
+<td>Distribution of predicted labels (label dimension).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="inference-service-inference8001">Inference Service
+(<code>inference:8001</code>)</h3>
+<table>
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 22%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>inference_predictions_total</code></td>
+<td>Counter</td>
+<td>Total number of comments scored by the model.</td>
+</tr>
+<tr class="even">
+<td><code>inference_duration_seconds</code></td>
+<td>Histogram</td>
+<td>Model forward-pass duration per request (buckets up to 30 s).</td>
+</tr>
+<tr class="odd">
+<td><code>inference_batch_size</code></td>
+<td>Histogram</td>
+<td>Number of comments passed to the model in a single call.</td>
+</tr>
+<tr class="even">
+<td><code>inference_model_ready</code></td>
+<td>Gauge</td>
+<td><code>1</code> when the model is loaded and serving, <code>0</code>
+otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="most-important-metrics">Most Important Metrics</h3>
+<ul>
+<li><strong><code>comments_classified_total</code></strong> — throughput
+indicator. A rising rate means the system is keeping up with load.</li>
+<li><strong><code>batch_size</code></strong> — verifies microbatching.
+Under load the average should approach the configured maximum (4). Near
+1 indicates under-utilisation or timeouts.</li>
+<li><strong><code>batch_inference_duration_seconds</code></strong> —
+end-to-end model latency per batch. Spikes here point to GPU/CPU
+contention or large inputs.</li>
+<li><strong><code>microbatch_queue_size</code></strong> — back-pressure
+signal. A steadily growing queue means the inference service cannot keep
+up.</li>
+<li><strong><code>batch_wait_time_seconds</code></strong> —
+user-experience proxy. High values mean comments sit in the buffer for a
+long time before classification.</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3
+id="bind-for-0.0.0.08001-failed-port-is-already-allocated"><code>Bind for 0.0.0.0:8001 failed: port is already allocated</code></h3>
+<p>A previous Docker container is still holding port 8001 (often
+<code>docker-proxy</code> running as root).</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Stop the conflicting container</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> docker stop <span class="va">$(</span><span class="fu">sudo</span> docker ps <span class="at">-q</span> <span class="at">--filter</span> <span class="st">&quot;publish=8001&quot;</span><span class="va">)</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Or stop everything and start fresh</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> docker compose down</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> docker compose up <span class="at">--build</span> <span class="at">-d</span></span></code></pre></div>
+<h3
+id="inference-container-stuck-in-waiting-then-fails-to-start"><code>inference</code>
+container stuck in <code>Waiting</code> then fails to start</h3>
+<p>The <code>api</code> service waits for <code>inference</code> to
+become healthy. If the inference container can’t start (e.g., port
+conflict) or takes too long to load the model, <code>api</code> will
+eventually fail.</p>
+<ul>
+<li><strong>Port conflict:</strong> see the section above.</li>
+<li><strong>Model loading time:</strong>
+<code>MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli</code> is ~400 MB. On
+first download it can take a minute or two. The healthcheck
+<code>start_period</code> in <code>docker-compose.yml</code> allows up
+to 5 minutes for the model to load before marking the container
+unhealthy.</li>
+<li><strong>Persistent cache:</strong> The model is cached in a Docker
+volume (<code>huggingface_cache</code> →
+<code>/root/.cache/huggingface</code>). It survives restarts as long as
+you don’t run <code>docker compose down -v</code>. To check if the cache
+exists:</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> docker volume ls <span class="kw">|</span> <span class="fu">grep</span> huggingface_cache</span></code></pre></div>
+<h2 id="example-run">Example run</h2>
+<p>Note: Both prompt generation and classification has been done with
+small models in the interest of time, meaning that both prompts and
+classification results are often nonsensical.</p>
+<h3 id="dashboard">Dashboard</h3>
+<figure>
+<img src="grafana_dashboard.png" alt="Grafana Dashboard" />
+<figcaption aria-hidden="true">Grafana Dashboard</figcaption>
+</figure>
+<h3 id="k6-load-test-output">k6 Load Test Output</h3>
+<pre class="text"><code>          /\      Grafana   /‾‾/  
+        /\  /  \     |\  __   /  /   
+       /  \/    \    | |/ /  /   ‾‾\ 
+      /          \   |   (  |  (‾)  |
+     / __________ \  |_|\_\  \_____/ 
+
+
+         execution: local
+            script: /scripts/classify_load_test.js
+     web dashboard: http://0.0.0.0:5665
+            output: -
+
+         scenarios: (100.00%) 1 scenario, 6 max VUs, 6m6s max duration (incl. graceful stop):
+                  * classify_ramp: Up to 6 looping VUs for 5m36s over 5 stages (gracefulRampDown: 2m0s, gracefulStop: 30s)
+
+    INFO[0032] OK | request_id=5cb609df-670a-4011-b7d1-936bea4cdac9 | total_latency=12038ms | poll_time=12033ms | attempts=13 | comment=&quot;Hervorragend, lass uns das sofort prokrastinieren....&quot; | label=Zustimmung | score=0.64  source=console
+    INFO[0032] OK | request_id=4a68f3cb-4d46-4686-902a-dc87bfb497d5 | total_latency=22072ms | poll_time=22067ms | attempts=23 | comment=&quot;Die Nachbarn kontrollieren das Wetter mit einer Fernbedienun...&quot; | label=Sarkasmus oder Ironie | score=0.22  source=console
+    INFO[0032] OK | request_id=d97cb724-0d0d-46e9-be9a-f3364e604720 | total_latency=32138ms | poll_time=32129ms | attempts=33 | comment=&quot;Die Nachbarn kontrollieren das Wetter mit einer Fernbedienun...&quot; | label=Sarkasmus oder Ironie | score=0.22  source=console
+    INFO[0032] OK | request_id=ed9595ce-7af3-4527-b1ca-05ff6b0491b3 | total_latency=32139ms | poll_time=32130ms | attempts=33 | comment=&quot;Super Idee — und danach erfinden wir Einhörner....&quot; | label=Zustimmung | score=0.29  source=console
+    INFO[0052] OK | request_id=4e80980e-1c26-4d3b-abf7-3eb0e119d14a | total_latency=20072ms | poll_time=20069ms | attempts=21 | comment=&quot;Ehrlich, das ist schlecht organisiert und unfair....&quot; | label=sachliche Kritik | score=0.82  source=console
+    INFO[0052] OK | request_id=91749095-1c39-4d89-9f6a-6d654be202c8 | total_latency=20073ms | poll_time=20070ms | attempts=21 | comment=&quot;Super Idee — und danach erfinden wir Einhörner....&quot; | label=Zustimmung | score=0.29  source=console
+    INFO[0052] OK | request_id=9d600c6e-54c9-43fb-944f-0db77db72231 | total_latency=20093ms | poll_time=20087ms | attempts=21 | comment=&quot;Natürlich, das macht total Sinn (Augenrollen)....&quot; | label=Zustimmung | score=0.4  source=console
+    INFO[0052] OK | request_id=5334c39f-13a8-4c15-9fc4-e8e467b94c6b | total_latency=20094ms | poll_time=20088ms | attempts=21 | comment=&quot;Es gibt eine Verschwörung, dass Socken bewusst verschwinden....&quot; | label=Desinformation oder Verschwörung | score=0.55  source=console
+    INFO[0076] OK | request_id=5872b02a-caf8-4f28-881e-cf93021e25d5 | total_latency=36127ms | poll_time=36121ms | attempts=37 | comment=&quot;Die Überschrift verspricht mehr, als der Text liefert....&quot; | label=Desinformation oder Verschwörung | score=0.37  source=console
+    INFO[0076] OK | request_id=31c4f1b6-01a2-4dc3-919d-d1436d3cf29e | total_latency=24077ms | poll_time=24075ms | attempts=25 | comment=&quot;Ich fühle mich betrogen und wütend....&quot; | label=Empörung oder Rant | score=0.64  source=console
+    INFO[0076] OK | request_id=e0f06852-d5de-41b9-87fc-21394ad3ce1e | total_latency=24086ms | poll_time=24084ms | attempts=25 | comment=&quot;Es wird gemunkelt, dass Schreibtischstühle kleine Agenten si...&quot; | label=sachliche Kritik | score=0.31  source=console
+    INFO[0076] OK | request_id=94d6d457-cbcc-422a-8172-d26477dad05e | total_latency=24106ms | poll_time=24103ms | attempts=25 | comment=&quot;Technisch korrekt, jedoch fehlen praktische Beispiele zur Ve...&quot; | label=Off-Topic-Kommentar | score=0.27  source=console
+    INFO[0095] OK | request_id=d342fd36-ef5d-458d-93ae-392440548cfd | total_latency=35121ms | poll_time=35117ms | attempts=36 | comment=&quot;Kleiner Hinweis: Der Kaffeeautomat ist leer....&quot; | label=sachliche Kritik | score=0.34  source=console
+    INFO[0095] OK | request_id=6c0349fb-4719-4d46-85db-0d159573ac5a | total_latency=19066ms | poll_time=19062ms | attempts=20 | comment=&quot;Die Milch im Supermarkt ist eigentlich flüssiges Gold — oder...&quot; | label=Desinformation oder Verschwörung | score=0.48  source=console
+    INFO[0095] OK | request_id=73045f2a-e66e-4c3d-93fa-dd4a02ef5833 | total_latency=19063ms | poll_time=19059ms | attempts=20 | comment=&quot;Jeder Keks enthält winzige Sensoren vom Plätzchen-Kartell....&quot; | label=Empörung oder Rant | score=0.24  source=console
+    INFO[0095] OK | request_id=b10376c6-9906-4d67-a205-54a33758d327 | total_latency=43172ms | poll_time=43169ms | attempts=44 | comment=&quot;Ich bin empört und will eine Erklärung....&quot; | label=Empörung oder Rant | score=0.55  source=console
+    INFO[0120] OK | request_id=024fc779-7a0b-4d2b-8b50-18d6998d7d61 | total_latency=25098ms | poll_time=25094ms | attempts=26 | comment=&quot;Auf einer anderen Note, ich suche ein neues Headset....&quot; | label=Off-Topic-Kommentar | score=0.35  source=console
+    INFO[0120] OK | request_id=c6743104-349a-490e-ad21-ed669a87709f | total_latency=25097ms | poll_time=25091ms | attempts=26 | comment=&quot;Wie kann man so planen — das ist grob fahrlässig....&quot; | label=sachliche Kritik | score=0.27  source=console
+    INFO[0120] OK | request_id=4a7166a3-f562-4cc2-878f-ea3abc3ae13f | total_latency=44164ms | poll_time=44161ms | attempts=45 | comment=&quot;Nebenbei, gestern habe ich ein Rätsel gelöst....&quot; | label=Off-Topic-Kommentar | score=0.33  source=console
+    INFO[0120] OK | request_id=d00c430b-e3ce-409a-aeb6-b1fa3cbfe2e0 | total_latency=44180ms | poll_time=44178ms | attempts=45 | comment=&quot;Jeder Keks enthält winzige Sensoren vom Plätzchen-Kartell....&quot; | label=Empörung oder Rant | score=0.24  source=console
+    INFO[0148] OK | request_id=20e3dcbc-22f2-46bd-a348-10b50fae811f | total_latency=28139ms | poll_time=28136ms | attempts=29 | comment=&quot;Natürlich, das macht total Sinn (Augenrollen)....&quot; | label=Zustimmung | score=0.4  source=console
+    INFO[0148] OK | request_id=ca821d64-477c-4ca8-a5ba-811e5b3a2b07 | total_latency=53217ms | poll_time=53215ms | attempts=54 | comment=&quot;Prima, noch ein komplexes Passwort: &#39;1234&#39;....&quot; | label=Off-Topic-Kommentar | score=0.26  source=console
+    INFO[0148] OK | request_id=8236e966-d9fc-4bfa-a630-bcf0837db77b | total_latency=53252ms | poll_time=53250ms | attempts=54 | comment=&quot;Unfassbar — das ist ein Skandal....&quot; | label=Desinformation oder Verschwörung | score=0.48  source=console
+    INFO[0149] OK | request_id=821d9219-bd42-48f5-a7fd-1ecec9906559 | total_latency=29140ms | poll_time=29136ms | attempts=30 | comment=&quot;Katzen sind eigentlich Roboter von einer anderen Galaxie....&quot; | label=Desinformation oder Verschwörung | score=0.36  source=console
+    INFO[0168] OK | request_id=c1db55f7-daf9-450b-8ac2-2c230be3df11 | total_latency=20070ms | poll_time=20067ms | attempts=21 | comment=&quot;Gute Idee, aber die Annahmen sollten besser begründet werden...&quot; | label=sachliche Kritik | score=0.27  source=console
+    INFO[0168] OK | request_id=c0b23948-d473-4102-a68a-9077c25dd3ad | total_latency=20071ms | poll_time=20067ms | attempts=21 | comment=&quot;Ehrlich, das ist schlecht organisiert und unfair....&quot; | label=sachliche Kritik | score=0.82  source=console
+    INFO[0168] OK | request_id=aa50c4de-a822-44a4-8c5f-ecf5e2e26285 | total_latency=48188ms | poll_time=48184ms | attempts=49 | comment=&quot;Ja klar, Logik optional, Gefühl obligatorisch....&quot; | label=Zustimmung | score=0.62  source=console
+    INFO[0168] OK | request_id=fe7696f1-a123-4139-9745-67cf58a7a6f0 | total_latency=48217ms | poll_time=48212ms | attempts=49 | comment=&quot;Natürlich, das macht total Sinn (Augenrollen)....&quot; | label=Zustimmung | score=0.4  source=console
+    INFO[0194] OK | request_id=e1a8e92e-7dde-4e3f-9ec2-2282553a8f4a | total_latency=26095ms | poll_time=26092ms | attempts=27 | comment=&quot;Ich liebe Katzenvideos — hat das hier jemand gesehen?...&quot; | label=Off-Topic-Kommentar | score=0.28  source=console
+    INFO[0194] OK | request_id=320ad40e-5e9d-4347-9485-0997bcaa5557 | total_latency=46185ms | poll_time=46180ms | attempts=47 | comment=&quot;Der Aufbau des Artikels ist unübersichtlich; eine klare Glie...&quot; | label=Desinformation oder Verschwörung | score=0.28  source=console
+    INFO[0195] OK | request_id=7b3a8fbb-023b-4ffe-894f-ce6e2afcdb17 | total_latency=46170ms | poll_time=46167ms | attempts=47 | comment=&quot;Manche Fachbegriffe werden nicht erklärt — für Laien schwer ...&quot; | label=sachliche Kritik | score=0.3  source=console
+    INFO[0195] OK | request_id=f059492d-d591-46dc-8058-521fe94eb961 | total_latency=27109ms | poll_time=27106ms | attempts=28 | comment=&quot;Super Idee — und danach erfinden wir Einhörner....&quot; | label=Zustimmung | score=0.29  source=console
+    INFO[0224] OK | request_id=c6d37925-5ac7-4163-8740-9bde39ae5058 | total_latency=30106ms | poll_time=30103ms | attempts=31 | comment=&quot;Manche Fachbegriffe werden nicht erklärt — für Laien schwer ...&quot; | label=sachliche Kritik | score=0.3  source=console
+    INFO[0224] OK | request_id=e9f70c5b-be9c-4260-8043-5ac2d18bb278 | total_latency=56183ms | poll_time=56181ms | attempts=57 | comment=&quot;Der Vorschlag ist realistisch, benötigt aber eine Kosten-Nut...&quot; | label=sachliche Kritik | score=0.34  source=console
+    INFO[0224] OK | request_id=d32c05cd-3047-4ca0-90a6-8497205909a7 | total_latency=30125ms | poll_time=30122ms | attempts=31 | comment=&quot;Sehr treffend formuliert....&quot; | label=sachliche Kritik | score=0.38  source=console
+    INFO[0224] OK | request_id=759b36d4-2d7b-48cf-96de-9b3b321545e6 | total_latency=56233ms | poll_time=56229ms | attempts=57 | comment=&quot;Der Vorschlag ist realistisch, benötigt aber eine Kosten-Nut...&quot; | label=sachliche Kritik | score=0.34  source=console
+    INFO[0249] OK | request_id=700fecb3-029f-4aa3-bd01-616ae671af46 | total_latency=54183ms | poll_time=54179ms | attempts=55 | comment=&quot;Ich bin empört und will eine Erklärung....&quot; | label=Empörung oder Rant | score=0.55  source=console
+    INFO[0249] OK | request_id=5ce7da00-3e11-4971-ad9e-3033cb6cc7bd | total_latency=54172ms | poll_time=54169ms | attempts=55 | comment=&quot;Die Grafiken sind hilfreich, brauchen aber eindeutigere Besc...&quot; | label=sachliche Kritik | score=0.21  source=console
+    INFO[0249] OK | request_id=92583687-5d96-4d20-8ddc-66f3440fae61 | total_latency=25075ms | poll_time=25073ms | attempts=26 | comment=&quot;Hervorragend, lass uns das sofort prokrastinieren....&quot; | label=Zustimmung | score=0.64  source=console
+    INFO[0249] OK | request_id=d8cd795a-87b4-408a-997a-bd9a720afa98 | total_latency=25070ms | poll_time=25068ms | attempts=26 | comment=&quot;Übrigens: Weiß jemand, wo mein Regenschirm ist?...&quot; | label=Off-Topic-Kommentar | score=0.4  source=console
+    INFO[0267] OK | request_id=713acdef-d6fd-458c-9ae6-9d35213b7fec | total_latency=18058ms | poll_time=18056ms | attempts=19 | comment=&quot;Klar, die perfekte Lösung — wann ist der Weltraumaufbruch?...&quot; | label=Empörung oder Rant | score=0.28  source=console
+    INFO[0268] OK | request_id=b5e28a8a-c1bf-44bf-a2e6-e69ab8e3939a | total_latency=43166ms | poll_time=43162ms | attempts=44 | comment=&quot;Gute Idee, aber die Annahmen sollten besser begründet werden...&quot; | label=sachliche Kritik | score=0.27  source=console
+    INFO[0268] OK | request_id=80e59c08-075c-4168-a175-7a9554ed883b | total_latency=43168ms | poll_time=43164ms | attempts=44 | comment=&quot;Ich wollte nur sagen, meine Pflanze blüht gerade....&quot; | label=Empörung oder Rant | score=0.38  source=console
+    INFO[0268] OK | request_id=76fa2346-d180-45b5-a115-0694dadab012 | total_latency=19061ms | poll_time=19059ms | attempts=20 | comment=&quot;Apropos Essen, gestern gab es großartige Pizza....&quot; | label=Off-Topic-Kommentar | score=0.68  source=console
+    INFO[0286] OK | request_id=08751c28-4ce5-4cfa-b602-cdd91df968eb | total_latency=19063ms | poll_time=19059ms | attempts=20 | comment=&quot;Stimme voll und ganz zu....&quot; | label=Zustimmung | score=0.94  source=console
+    INFO[0286] OK | request_id=f31fa9b8-5ce1-4cb0-b1a9-2c5ee4110236 | total_latency=37113ms | poll_time=37112ms | attempts=38 | comment=&quot;Stilistisch okay, aber einige Sätze sind zu lang und verscha...&quot; | label=sachliche Kritik | score=0.59  source=console
+    INFO[0286] OK | request_id=db84f532-2ab9-4e3e-8cda-9af62ef4aa0b | total_latency=37105ms | poll_time=37104ms | attempts=38 | comment=&quot;Natürlich, das macht total Sinn (Augenrollen)....&quot; | label=Zustimmung | score=0.4  source=console
+    INFO[0287] OK | request_id=b681071d-b702-4d0a-bf59-a22e4f3e09ac | total_latency=19089ms | poll_time=19084ms | attempts=20 | comment=&quot;Die Argumentation ist gut gemeint, aber die Quellen sind nic...&quot; | label=Zustimmung | score=0.24  source=console
+    INFO[0305] OK | request_id=71dd336e-eacf-4f50-87d9-9d8bfb1027e8 | total_latency=37125ms | poll_time=37122ms | attempts=38 | comment=&quot;Ich liebe Katzenvideos — hat das hier jemand gesehen?...&quot; | label=Off-Topic-Kommentar | score=0.28  source=console
+    INFO[0305] OK | request_id=98e7a0d5-5015-43d8-bb59-f427ee82eebf | total_latency=19066ms | poll_time=19062ms | attempts=20 | comment=&quot;Wie kann man so planen — das ist grob fahrlässig....&quot; | label=sachliche Kritik | score=0.27  source=console
+    INFO[0306] OK | request_id=556d8524-73a4-4b7c-b425-b108b070d587 | total_latency=19064ms | poll_time=19060ms | attempts=20 | comment=&quot;Ich liebe Katzenvideos — hat das hier jemand gesehen?...&quot; | label=Off-Topic-Kommentar | score=0.28  source=console
+    INFO[0306] OK | request_id=ef936f88-a75e-4560-ab9b-4a4d2109312b | total_latency=38162ms | poll_time=38157ms | attempts=39 | comment=&quot;Perfekt, noch ein Rezept für Toastbrot....&quot; | label=Empörung oder Rant | score=0.26  source=console
+    INFO[0325] OK | request_id=87c6ab7d-9f32-4db3-ac29-26a2429d6c0b | total_latency=38144ms | poll_time=38141ms | attempts=39 | comment=&quot;Nur so nebenbei: Die Straßenbahn hatte Verspätung....&quot; | label=Desinformation oder Verschwörung | score=0.32  source=console
+    INFO[0326] OK | request_id=d08637e1-6d4e-4501-aead-abf8c33eeb1e | total_latency=20072ms | poll_time=20068ms | attempts=21 | comment=&quot;Dem kann ich nur zustimmen....&quot; | label=Zustimmung | score=0.72  source=console
+    INFO[0326] OK | request_id=a39f87c0-e438-4dab-91a4-05af641d3a9e | total_latency=39124ms | poll_time=39121ms | attempts=40 | comment=&quot;Jeder Keks enthält winzige Sensoren vom Plätzchen-Kartell....&quot; | label=Empörung oder Rant | score=0.24  source=console
+    INFO[0326] OK | request_id=d0b9c6ca-b789-4169-8fd0-cf050637475d | total_latency=20072ms | poll_time=20069ms | attempts=21 | comment=&quot;Katzen sind eigentlich Roboter von einer anderen Galaxie....&quot; | label=Desinformation oder Verschwörung | score=0.36  source=console
+    INFO[0362] OK | request_id=0e0dc984-5920-4a32-b1c2-1545bd08e2d6 | total_latency=37121ms | poll_time=37117ms | attempts=38 | comment=&quot;Bitte präzisieren Sie die Methodik — die Schritte sind zu al...&quot; | label=Zustimmung | score=0.27  source=console
+    INFO[0362] OK | request_id=025907d0-3c3e-4a3a-8dfc-4b8c03703712 | total_latency=56192ms | poll_time=56189ms | attempts=57 | comment=&quot;Ich fühle mich betrogen und wütend....&quot; | label=Empörung oder Rant | score=0.64  source=console
+
+
+  █ THRESHOLDS 
+
+    classify_submission_ms
+    ✓ &#39;p(95)&lt;5000&#39; p(95)=6
+
+    http_req_duration
+    ✓ &#39;p(95)&lt;10000&#39; p(95)=4.65ms
+
+    http_req_failed
+    ✓ &#39;rate&lt;0.01&#39; rate=0.00%
+
+    result_errors
+    ✓ &#39;rate&lt;0.05&#39; rate=0.00%
+
+    total_latency_ms
+    ✓ &#39;p(95)&lt;150000&#39; p(95)=54483
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 406     1.120029/s
+    checks_succeeded...: 100.00% 406 out of 406
+    checks_failed......: 0.00%   0 out of 406
+
+    ✓ classify status is 200
+    ✓ classify returns request_id
+    ✓ result status is 200
+    ✓ result is not pending
+    ✓ result has non-empty label
+    ✓ result has valid score
+    ✓ result is not error
+
+    CUSTOM
+    classify_submission_ms.........: avg=3.551724     min=1        med=3      max=9       p(90)=5.3     p(95)=6     
+    poll_attempts..................: avg=33.275862    min=13       med=30.5   max=57      p(90)=54      p(95)=55.3  
+    result_errors..................: 0.00%  0 out of 58
+    total_latency_ms...............: avg=32397.258621 min=12038    med=29623  max=56233   p(90)=53227.5 p(95)=54483 
+
+    HTTP
+    http_req_duration..............: avg=2.74ms       min=743.43µs med=2.45ms max=13.14ms p(90)=3.86ms  p(95)=4.65ms
+      { expected_response:true }...: avg=2.74ms       min=743.43µs med=2.45ms max=13.14ms p(90)=3.86ms  p(95)=4.65ms
+    http_req_failed................: 0.00%  0 out of 1988
+    http_reqs......................: 1988   5.484279/s
+
+    EXECUTION
+    iteration_duration.............: avg=32.39s       min=12.03s   med=29.62s max=56.23s  p(90)=53.22s  p(95)=54.48s
+    iterations.....................: 58     0.160004/s
+    vus............................: 2      min=2         max=6
+    vus_max........................: 6      min=6         max=6
+
+    NETWORK
+    data_received..................: 295 kB 815 B/s
+    data_sent......................: 218 kB 601 B/s
+
+
+
+
+running (6m02.5s), 0/6 VUs, 58 complete and 0 interrupted iterations</code></pre>
+</div><script>
+(function() {
+  const pres = document.querySelectorAll('pre code');
+  let target = null;
+  for (const pre of pres) {
+    if (pre.textContent.includes('Grafana') && pre.textContent.includes('execution: local')) {
+      target = pre;
+      break;
+    }
+  }
+  if (!target) return;
+
+  let html = target.innerHTML;
+
+  // Colorize INFO timestamps (e.g., INFO[0033])
+  html = html.replace(/INFO\[\d+\]/g, '<span class="k6-cyan">$&</span>');
+
+  // Colorize OK
+  html = html.replace(/\bOK\b/g, '<span class="k6-green">OK</span>');
+
+  // Colorize block headers (THRESHOLDS, TOTAL RESULTS)
+  html = html.replace(/(█ THRESHOLDS|█ TOTAL RESULTS)/g, '<span class="k6-magenta">$1</span>');
+
+  // Colorize section headers (CUSTOM, HTTP, EXECUTION, NETWORK)
+  html = html.replace(/^(    )(CUSTOM|HTTP|EXECUTION|NETWORK)$/gm, '$1<span class="k6-cyan">$2</span>');
+
+  // Colorize checkmarks
+  html = html.replace(/(✓)/g, '<span class="k6-green">$1</span>');
+
+  // Colorize metric labels (text before colons in results, indented)
+  html = html.replace(/^(    )([\w_]+)(\.{3,})/gm, '$1<span class="k6-cyan">$2</span>$3');
+
+  // Colorize source=console
+  html = html.replace(/source=console/g, '<span class="k6-dim">source=console</span>');
+
+  // Colorize "out of X" in checks
+  html = html.replace(/(\d+ out of \d+)/g, '<span class="k6-green">$1</span>');
+
+  target.innerHTML = html;
+})();
+</script>
+</body>
+</html>

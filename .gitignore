@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.venv_gpu/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local env
+.env
+
+# Backups
+*.bak
