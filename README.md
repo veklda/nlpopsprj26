@@ -86,34 +86,6 @@ The `batch_worker` loop also exposes the `microbatch_queue_size` metric, which i
 ```bash
 # Build and start (CPU)
 sudo docker compose up --build
-
-# Start with GPU (requires nvidia-container-toolkit)
-CUDA_VISIBLE_DEVICES=all sudo docker compose up --build
-
-# Interactive client (separate terminal — polls /status then enters async loop)
-python test_client.py
-```
-
-### Local (without Docker)
-
-```bash
-# Start Redis
-sudo docker run -d -p 6379:6379 redis:7-alpine
-
-# Start inference server (use .venv_gpu for GPU)
-uvicorn inference.server:app --port 8001
-
-# Start API server (another terminal)
-INFERENCE_URL=http://127.0.0.1:8001/predict_batch \
-  REDIS_URL=redis://127.0.0.1:6379/0 \
-  uvicorn api.main:app --port 8000
-
-# When running multiple uvicorn workers, enable the batch worker on only one instance:
-# BATCH_WORKER_ENABLED=1 uvicorn api.main:app --port 8000
-# BATCH_WORKER_ENABLED=0 uvicorn api.main:app --port 8000 --workers 3
-
-# Interactive client
-python test_client.py
 ```
 
 ### Load Testing (k6)
@@ -126,26 +98,6 @@ sudo docker compose up --build -d
 #    k6 web dashboard will be available at http://localhost:5665
 sudo docker compose --profile loadtest run --service-ports --rm k6
 ```
-
-### Standalone (original single-process, no Redis)
-
-```bash
-.venv/bin/uvicorn main:app                              # CPU
-.venv_gpu/bin/uvicorn main:app                          # GPU (MX250 / sm_61)
-```
-
-## GPU support
-
-The inference server auto-detects CUDA and runs on GPU when available. Two GPU environments exist:
-
-- **Docker** — the `inference` image is built on `pytorch/pytorch:2.6.0-cuda12.6-cudnn9-runtime` (PyTorch 2.6.0 / CUDA 12.6).
-- **Local `.venv_gpu`** — Python 3.11, PyTorch 2.4.1+cu121, pinned for the MX250 (sm_61).
-
-```python
-device = 0 if torch.cuda.is_available() else "cpu"
-```
-
-To verify: start the server and check the logs — `Device set to use cuda:0` confirms GPU inference.
 
 ## Metrics
 
