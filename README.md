@@ -2,6 +2,26 @@
 
 FastAPI service for zero-shot classification of German comments using `MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli`.
 
+## Usage
+
+### Docker Compose
+
+```bash
+# Build and start (CPU)
+sudo docker compose up --build
+```
+
+### Load Testing (k6)
+
+```bash
+# 1. Start the stack first in the background (inference, api, redis, monitoring)
+sudo docker compose up --build -d
+
+# 2. In another terminal, run the load test — output is clearly visible here
+#    k6 web dashboard will be available at http://localhost:5665
+sudo docker compose --profile loadtest run --service-ports --rm k6
+```
+
 ## API
 
 | Method | Path              | Description                                      |
@@ -78,26 +98,6 @@ The `batch_worker` loop also exposes the `microbatch_queue_size` metric, which i
 - **redis** — queue decouples request submission from inference
 - **api** — FastAPI gateway. Accepts requests, pushes to Redis. Runs the microbatch background worker. Applies exponential backoff on inference failures.
 - **inference** — Model server with single (`/predict`) and batch (`/predict_batch`) endpoints, plus a `/health` endpoint for readiness checks.
-
-## Usage
-
-### Docker Compose
-
-```bash
-# Build and start (CPU)
-sudo docker compose up --build
-```
-
-### Load Testing (k6)
-
-```bash
-# 1. Start the stack first in the background (inference, api, redis, monitoring)
-sudo docker compose up --build -d
-
-# 2. In another terminal, run the load test — output is clearly visible here
-#    k6 web dashboard will be available at http://localhost:5665
-sudo docker compose --profile loadtest run --service-ports --rm k6
-```
 
 ## Metrics
 
